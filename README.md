@@ -14,8 +14,8 @@ made in python because c# gave me errors but python bad imo
 - Other Stuff: [x]
 
 ## How to run
-- Put token in Token.txt or input at first launch.
-- Run Command python domas.py
+- Edit config.py to set token, you can also edit prefix if you want.
+- Run Command "python emoji.py"
 
 ## Commands and Usage
 Default Prefix = ";"
