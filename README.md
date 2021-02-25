@@ -21,7 +21,7 @@
 
 ## Commands and Usage
 - Default Prefix = ";"
-- Help - SHows a list of all commands. | ";help"
+- Help - Shows a list of all commands. | ";help"
 - Clear - Clears console screen. | ";clear"
 - Dump - Dumps all emojis in a guild. | ";dump"
 - Search - Search for an emoji. | ";search emojiName"
