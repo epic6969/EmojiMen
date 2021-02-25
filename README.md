@@ -11,7 +11,7 @@ made in python because c# gave me errors but python bad imo
     - Search: [x]
     - Dump: [x]
     - Clear: [x]
-- Other Stuff: [x]
+- Optimize Code: [x]
 
 ## How to run
 - Edit config.py to set token, you can also edit prefix if you want.
