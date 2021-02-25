@@ -13,9 +13,11 @@ made in python because c# gave me errors but python bad imo
     - Clear: [x]
 - Other Stuff: [x]
 
-## Usage
+## How to run
 python domas.py
-- Default Prefix = ";"
+
+## Commands and Usage
+Default Prefix = ";"
 - Help - SHows a list of all commands. ";help"
 - Clear - Clears console screen. ";clear"
 - Dump - Dumps all emojis in a guild. ";dump"
