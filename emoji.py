@@ -12,18 +12,6 @@ sb.remove_command("help")
 async def on_ready():
     print("Ready!")
 
-# Emoji - Sends any emoji as link or attachment.
-@sb.command()
-async def emoji(ctx, emojiName):
-    await ctx.message.delete()
-    emoji = getEmojiFromName(emojiName)
-    try:
-        await ctx.send(file=discord.File(emoji))
-    except:
-        if emoji != "EmojiNotFound":
-            await ctx.send(content=emoji.url)
-    print("[ERROR]: Couldn't find any emojis matching your search!" if emoji == "EmojiNotFound" else "[SUCCESS]: Found and sent emoji: "+str(emoji))
-    
 def getEmojiFromName(name):
     currentDir = os.getcwd()
     for r, d, f in os.walk(currentDir):
@@ -37,14 +25,23 @@ def getEmojiFromName(name):
                     return emoji
     return "EmojiNotFound"
 
-# Search - Search for emoji.
+@sb.command()
+async def emoji(ctx, emojiName):
+    await ctx.message.delete()
+    emoji = getEmojiFromName(emojiName)
+    try:
+        await ctx.send(file=discord.File(emoji))
+    except:
+        if emoji != "EmojiNotFound":
+            await ctx.send(content=emoji.url)
+    print("[ERROR]: Couldn't find any emojis matching your search!" if emoji == "EmojiNotFound" else "[SUCCESS]: Found and sent emoji: "+str(emoji))
+
 @sb.command()
 async def search(ctx, searchQuery):
     await ctx.message.delete()
     result = getEmojiFromName(searchQuery)
     print("[ERROR]: Couldn't find any emojis matching your search!" if result == "EmojiNotFound" else "[SUCCESS]: Found emoji: "+str(result))
 
-# Dump - Dumps all emojis in a guild.
 @sb.command()
 async def dump(ctx):
     await ctx.message.delete()
@@ -55,16 +52,14 @@ async def dump(ctx):
             os.mkdir(path)
         with open(path+emoji.name+".gif" if emoji.animated else path+emoji.name+".png", "wb") as f:
             f.write(r.content)
-    print("[DONE]: Downloaded all emojis from"+ctx.message.guild.name+"!")
+    print("[SUCCESS]: Downloaded all emojis from"+ctx.message.guild.name+"!")
 
-# Clear - Clears console screen.
 @sb.command()
 async def clear(ctx):
     await ctx.message.delete()
     _ = os.system("clear") if os.name == "posix" else os.system("cls")
-    print("[DONE]: Cleared Console!")
+    print("[SUCCESS]: Cleared Console!")
 
-# Help - Shows a list of all commands.
 @sb.command()
 async def help(ctx):
     await ctx.message.delete()
