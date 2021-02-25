@@ -30,20 +30,17 @@ async def on_ready():
 
 # Emoji - Sends any emoji as link/attachment.
 @sb.command()
-async def emoji(ctx, opt, emojiName):
+async def emoji(ctx, emojiName):
     await ctx.message.delete()
-    if opt == "attachment":
-        await ctx.send(file=discord.File(getEmojiFromName(emojiName)))
-    if opt == "link":
-        found = False
-        for guild in sb.guilds:
-            if found == True:
-                break
-            for emoji in guild.emojis:
-                if emojiName in emoji.name:
-                    found = True
-                    await ctx.send(emoji.url)
-                    break
+    emoji = getEmojiFromName(emojiName)
+    try:
+        await ctx.send(file=discord.File(emoji))
+    except:
+        if emoji == "EmojiNotFound":
+            print("[ERROR]: Couldn't find any emojis matching your search!")
+        else:
+            await ctx.send(content=emoji.url)
+        print("[SUCCESS]: Found & Sent Emoji: "+str(emoji)+"!")
     
 def getEmojiFromName(name):
     #root, directories, files
@@ -51,20 +48,23 @@ def getEmojiFromName(name):
     for r, d, f in os.walk(currentDir):
         for file in f:
             if file.endswith(".png") or file.endswith(".gif"):
-                if name not in file:
-                    continue
-                return os.path.join(r, file)
-    return "FileNotFound"
+                if name in file:
+                    return os.path.join(r, file)
+    for guild in sb.guilds:
+            for emoji in guild.emojis:
+                if name in emoji.name:
+                    return emoji
+    return "EmojiNotFound"
 
 # Search - Search for emoji in your files.
 @sb.command()
 async def search(ctx, searchQuery):
     await ctx.message.delete()
     result = getEmojiFromName(searchQuery)
-    if result == "FileNotFound":
-        print("Couldn't find any emojis matching your search!")
+    if result == "EmojiNotFound":
+        print("[ERROR]: Couldn't find any emojis matching your search!")
     else:
-        print("Found emoji: "+result)
+        print("[SUCCESS]: Found emoji: "+str(result))
 
 # Dump - Dumps all emojis in a guild.
 @sb.command()
@@ -91,6 +91,7 @@ async def clear(ctx):
         _ = os.system("clear")
     else:
         _ = os.system("cls")
+    print("[DONE]: Cleared Console!")
 
 # Help - SHows a list of all commands.
 @sb.command()
