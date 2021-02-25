@@ -19,8 +19,8 @@ made in python because c# gave me errors but python bad imo
 
 ## Commands and Usage
 Default Prefix = ";"
-- Help - SHows a list of all commands. ";help"
-- Clear - Clears console screen. ";clear"
-- Dump - Dumps all emojis in a guild. ";dump"
-- Search - Search for an emoji in your files. ";search fileName"
-- Emoji - Sends any emoji as link/attachment. ";emoji link emojiName || ;emoji attachment fileName"
+- Help - SHows a list of all commands. | ";help"
+- Clear - Clears console screen. | ";clear"
+- Dump - Dumps all emojis in a guild. | ";dump"
+- Search - Search for an emoji in your files. | ";search fileName"
+- Emoji - Sends any emoji as link/attachment. | ";emoji link emojiName || ;emoji attachment fileName"
