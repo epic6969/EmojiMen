@@ -4,11 +4,11 @@ made in python because c# gave me errors but python bad imo
 
 ## Checklist
 - Login: [x]
-- Config: [ ]
+- Config: [x]
 - Commands:
     - Help: [x]
     - Emoji: [ ]
     - Search: [ ]
-    - Dump: [ ]
+    - Dump: [x]
     - Clear: [x]
 - Other Stuff: [ ]
