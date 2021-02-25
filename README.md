@@ -3,5 +3,11 @@ idk what the heck im doing, i made this cuz my nitro expired, basically its a se
 
 ## Checklist
 - Login: [x]
-- Commands: [ ]
-- Other Stuff(idk): [ ]
+- Config: [ ]
+- Commands:
+    - Help: [x]
+    - Emoji: [ ]
+    - Search: [ ]
+    - Dump: [ ]
+    - Clear: [x]
+- Other Stuff: [ ]
