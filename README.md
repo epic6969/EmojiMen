@@ -14,6 +14,7 @@ made in python because c# gave me errors but python bad imo
 - Other Stuff: [x]
 
 ## Usage
+python domas.py
 - Default Prefix = ";"
 - Help - SHows a list of all commands. ";help"
 - Clear - Clears console screen. ";clear"
