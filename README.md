@@ -14,8 +14,8 @@ made in python because c# gave me errors but python bad imo
 - Other Stuff: [x]
 
 ## How to run
-python domas.py
-put token in Token.txt or just input it first launch and it will save
+- Put token in Token.txt or input at first launch.
+- Run Command python domas.py
 
 ## Commands and Usage
 Default Prefix = ";"
