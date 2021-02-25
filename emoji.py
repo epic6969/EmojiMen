@@ -12,18 +12,6 @@ client = discord.Client()
 sb = Bot(command_prefix=PREFIX, self_bot=True)
 sb.remove_command("help")
 
-def startSb():
-    global TOKEN
-    TOKEN = ""
-    try:
-        TOKEN = open("Token.txt", "r").read()
-        if TOKEN == "":
-            raise Exception("Token cannot be empty")
-    except:
-        TOKEN = input("Token: ")
-        open("Token.txt", "w").write(TOKEN)
-    sb.run(TOKEN, bot=False)
-
 @sb.event
 async def on_ready():
     print("Ready!")
@@ -93,10 +81,10 @@ async def clear(ctx):
         _ = os.system("cls")
     print("[DONE]: Cleared Console!")
 
-# Help - SHows a list of all commands.
+# Help - Shows a list of all commands.
 @sb.command()
 async def help(ctx):
     await ctx.message.delete()
     print("Here's a list of all the commands:\n*Help - Shows a list of all commands.\n*Dump - Dumps all emojis in a guild\n*Search - Search for an emoji.\n*Emoji - Use an emoji from your files.\n*Clear - Clears console screen.")
 
-startSb()
+sb.run(TOKEN, bot=False)
