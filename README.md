@@ -4,7 +4,7 @@ made in python because c# gave me errors but python bad imo
 
 ## Checklist
 - Login: [x]
-- Config: [-] (Soon done)
+- Config: [X]
 - Commands:
     - Help: [x]
     - Emoji: [x]
