@@ -1,6 +1,8 @@
-# EmojiMen
-idk what the heck im doing, i made this cuz my nitro expired, basically its a selfbot were u can download and search for emojis and it will be sent as attachment or link ig
-made in python because c# gave me errors but python bad imo
+# NoNitroEmoji
+- Essentialy its a selfbot. You can send emojis as links/attachments, download all emojis from a server, search for emojis in files and servers and so on.
+
+# Why?
+- I made this because my nitro expired and I still wanted to use emojis. You can get banned for this as it is a selfbot, I will not be held responsible for any use of this program.
 
 ## Checklist
 - Login: [x]
