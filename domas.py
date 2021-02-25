@@ -30,19 +30,41 @@ async def on_ready():
 
 # Emoji - Sends any emoji as link/attachment.
 @sb.command()
-async def emoji(ctx, opt):
+async def emoji(ctx, opt, emojiName):
     await ctx.message.delete()
     if opt == "attachment":
-        await ctx.send("")
+        await ctx.send(file=discord.File(getEmojiFromName(emojiName)))
     if opt == "link":
-        await ctx.send("")
-    print("hello bro")
+        found = False
+        for guild in sb.guilds:
+            if found == True:
+                break
+            for emoji in guild.emojis:
+                if emojiName in emoji.name:
+                    found = True
+                    await ctx.send(emoji.url)
+                    break
+    
+def getEmojiFromName(name):
+    #root, directories, files
+    currentDir = os.getcwd()
+    for r, d, f in os.walk(currentDir):
+        for file in f:
+            if file.endswith(".png") or file.endswith(".gif"):
+                if name not in file:
+                    continue
+                return os.path.join(r, file)
+    return "FileNotFound"
 
 # Search - Search for emoji in your files.
 @sb.command()
 async def search(ctx, searchQuery):
     await ctx.message.delete()
-    print("hello bro")
+    result = getEmojiFromName(searchQuery)
+    if result == "FileNotFound":
+        print("Couldn't find any emojis matching your search!")
+    else:
+        print("Found emoji: "+result)
 
 # Dump - Dumps all emojis in a guild.
 @sb.command()
