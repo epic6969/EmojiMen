@@ -6,9 +6,7 @@ from os import path
 import os
 from time import sleep
 import requests
-
-TOKEN = ""
-PREFIX = ";"
+from config import TOKEN, PREFIX
 
 client = discord.Client()
 sb = Bot(command_prefix=PREFIX, self_bot=True)
@@ -28,26 +26,45 @@ def startSb():
 
 @sb.event
 async def on_ready():
-    print("Let's go bro!!")
+    print("Ready!")
 
 # Emoji - Sends any emoji as link/attachment.
 @sb.command()
-async def emoji(ctx):
-    await print("hello bro")
+async def emoji(ctx, opt):
+    await ctx.message.delete()
+    if opt == "attachment":
+        await ctx.send("")
+    if opt == "link":
+        await ctx.send("")
+    print("hello bro")
 
 # Search - Search for emoji in your files.
 @sb.command()
-async def search(ctx):
-    await print("hello bro")
+async def search(ctx, searchQuery):
+    await ctx.message.delete()
+    print("hello bro")
 
 # Dump - Dumps all emojis in a guild.
 @sb.command()
 async def dump(ctx):
-    await print("hello bro")
+    await ctx.message.delete()
+    for emoji in ctx.message.guild.emojis:
+        r = requests.get(emoji.url)
+        path = ctx.message.guild.name+"/".strip()
+        if os.path.exists(path) == False:
+            os.mkdir(path)
+        if emoji.animated:
+            path = path+emoji.name+".gif"
+        else:
+            path = path+emoji.name+".png"
+        with open(path, "wb") as f:
+            f.write(r.content)
+    print("[DONE]: Downloaded all emojis from"+ctx.message.guild.name+"!")
 
 # Clear - Clears console screen.
 @sb.command()
 async def clear(ctx):
+    await ctx.message.delete()
     if os.name == "posix":
         _ = os.system("clear")
     else:
@@ -56,7 +73,7 @@ async def clear(ctx):
 # Help - SHows a list of all commands.
 @sb.command()
 async def help(ctx):
-    await print("Here's a list of all the commands:\n*Help - Shows a list of all commands.\n*Dump - Dumps all emojis in a guild\n*Search - Search for an emoji.\n*Emoji - Use an emoji from your files.\n*Clear - Clears console screen.")
+    await ctx.message.delete()
+    print("Here's a list of all the commands:\n*Help - Shows a list of all commands.\n*Dump - Dumps all emojis in a guild\n*Search - Search for an emoji.\n*Emoji - Use an emoji from your files.\n*Clear - Clears console screen.")
 
-clear()
 startSb()
