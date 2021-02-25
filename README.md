@@ -20,7 +20,7 @@
 - Run Command "python emoji.py"
 
 ## Commands and Usage
-Default Prefix = ";"
+- Default Prefix = ";"
 - Help - SHows a list of all commands. | ";help"
 - Clear - Clears console screen. | ";clear"
 - Dump - Dumps all emojis in a guild. | ";dump"
