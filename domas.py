@@ -28,7 +28,7 @@ def startSb():
 async def on_ready():
     print("Ready!")
 
-# Emoji - Sends any emoji as link/attachment.
+# Emoji - Sends any emoji as link or attachment.
 @sb.command()
 async def emoji(ctx, emojiName):
     await ctx.message.delete()
@@ -56,7 +56,7 @@ def getEmojiFromName(name):
                     return emoji
     return "EmojiNotFound"
 
-# Search - Search for emoji in your files.
+# Search - Search for emoji.
 @sb.command()
 async def search(ctx, searchQuery):
     await ctx.message.delete()
