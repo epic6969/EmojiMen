@@ -9,6 +9,6 @@ made in python because c# gave me errors but python bad imo
     - Help: [x]
     - Emoji: [ ]
     - Search: [ ]
-    - Dump: [x]
+    - Dump: [x] (Somewhat done, but not really)
     - Clear: [x]
 - Other Stuff: [ ]
