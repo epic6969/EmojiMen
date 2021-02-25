@@ -6,7 +6,7 @@
 
 ## Checklist
 - Login: [x]
-- Config: [X]
+- Config: [x]
 - Commands:
     - Help: [x]
     - Emoji: [x]
