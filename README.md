@@ -12,6 +12,7 @@
     - Emoji: [x]
     - Search: [x]
     - Dump: [x]
+    - Download: [x]
     - Clear: [x]
 - Optimize Code: [x]
 
@@ -24,5 +25,6 @@
 - Help - Shows a list of all commands. | ";help"
 - Clear - Clears console screen. | ";clear"
 - Dump - Dumps all emojis in a guild. | ";dump"
+- Download - Download an emoji from link | ";download emojiName animated link"
 - Search - Search for an emoji. | ";search emojiName"
 - Emoji - Sends any emoji as link or attachment. | ";emoji emojiName"
