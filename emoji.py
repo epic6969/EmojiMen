@@ -14,7 +14,7 @@ async def on_ready():
 
 def getEmojiFromName(name):
     currentDir = os.getcwd()
-    for r, d, f in os.walk(currentDir):
+    for r, d, f in os.walk(currentDir+"/Emojis"):
         for file in f:
             if file.endswith(".png") or file.endswith(".gif"):
                 if name in file:
@@ -47,12 +47,23 @@ async def dump(ctx):
     await ctx.message.delete()
     for emoji in ctx.message.guild.emojis:
         r = requests.get(emoji.url)
-        path = ctx.message.guild.name+"/".strip()
+        path = "Emojis/"+ctx.message.guild.name+"/".strip()
         if os.path.exists(path) == False:
             os.mkdir(path)
         with open(path+emoji.name+".gif" if emoji.animated else path+emoji.name+".png", "wb") as f:
             f.write(r.content)
-    print("[SUCCESS]: Downloaded all emojis from"+ctx.message.guild.name+"!")
+    print("[SUCCESS]: Downloaded all emojis from "+ctx.message.guild.name+"!")
+
+@sb.command()
+async def download(ctx, name, animated, link):
+    await ctx.message.delete()
+    r = requests.get(link)
+    path = "Emojis/Downloaded/"
+    if os.path.exists(path) == False:
+        os.mkdir(path)
+    with open(path+name+".gif" if animated else path+name+".png", "wb") as f:
+        f.write(r.content)
+    print("[SUCCESS]: Downloaded emoji "+name+"!")
 
 @sb.command()
 async def clear(ctx):
