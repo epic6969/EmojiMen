@@ -18,7 +18,7 @@
 
 ## How to run
 - Edit config.py to set token, you can also edit prefix if you want.
-- Run Command "python emoji.py"
+- Run Command "python emoji.py", might have to install libs ¯\_(ツ)_/¯
 
 ## Commands and Usage
 - Default Prefix = ";"
