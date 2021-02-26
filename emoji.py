@@ -74,7 +74,7 @@ async def clear(ctx):
 @sb.command()
 async def help(ctx):
     await ctx.message.delete()
-    print("Here's a list of all the commands:\n*Help - Shows a list of all commands.\n*Dump - Dumps all emojis in a guild\n*Search - Search for an emoji.\n*Emoji - Use an emoji from your files.\n*Clear - Clears console screen.")
+    print("Here's a list of all the commands:\n*Help - Shows a list of all commands.\n*Dump - Dumps all emojis in a guild\n*Download - Download an emoji from a link\n*Search - Search for an emoji.\n*Emoji - Use an emoji from your files.\n*Clear - Clears console screen.")
 
 if os.path.exists("Emojis") != True:
     os.mkdir("Emojis")
