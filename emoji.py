@@ -61,7 +61,7 @@ async def download(ctx, name, animated, link):
     path = "Emojis/Downloaded/"
     if os.path.exists(path) == False:
         os.mkdir(path)
-    with open(path+name+".gif" if animated else path+name+".png", "wb") as f:
+    with open(path+name+".gif" if animated == "true" else path+name+".png", "wb") as f:
         f.write(r.content)
     print("[SUCCESS]: Downloaded emoji "+name+"!")
 
